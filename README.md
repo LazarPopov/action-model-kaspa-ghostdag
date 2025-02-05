@@ -1,5 +1,3 @@
-# action-model-kaspa-ghostdag
-
 ## What is a blockchain. 
 A blockchain is a decentralized digital ledger that records transactions across a network of computers. Unlike traditional ledgers maintained by a single controlling authority, blockchain technology is distributed across multiple nodes, each of which keeps a copy of the entire ledger. Whenever a new transaction is added, it must be verified and agreed upon by a consensus mechanism—often based on algorithms like Proof of Work or Proof of Stake—before being incorporated into a new “block” that is appended to the chain of existing blocks. This decentralized structure enhances transparency and security because every participant can see the same record, making it extremely difficult for malicious actors to alter or falsify transactions without detection.
 
@@ -31,7 +29,7 @@ In summary, these action models illustrate how knowledge can be distributed in a
 
 # Action Models 
 
-**Action Model 1:** Miner Embeds the Contract in a Block
+##### **Action Model 1:** Miner Embeds the Contract in a Block
 
 **Events**: $E = \{e_m , e_d\}$, where $e_{m}$ is the event where the miner embeds the contract and $e_d$ is the event where the other agents do not distingush the event from not embedding the contract, since it is not broadcastted yet. 
 
@@ -40,38 +38,45 @@ In summary, these action models illustrate how knowledge can be distributed in a
 **Precondition**
 $pre(e_m) = contract$
 
-**Action Model 2:** Agent a Broadcasts existense of the Contract
+##### **Action Model 2:** Agent a Broadcasts existense of the Contract
 
 Here, agent _a_ tells all its direct connections that the contract exists. Only agents connected to _a_ receive the actual announcement.
 
 Events: $E = \{e_c , e_d\}$, where $e_{c}$ is the event where the miner the broadcast the knowlege about the contract and $e_d$ is the event where the other agents do not distingush the event.
 
-**Relations:** $e_c \sim e_d$ if and only if agent i is not connected to agent a.
+**Relations:** $e_c \sim_{i} e_d$ if and only if agent i is not connected to agent a.
 
 Precondition
 $pre(e_c​)=contract$, (the agent can only broadcast the contract if it already knows about it)
 
 
-**Action Model 3**: Agent _a_ Announces Its Intention to Sign the Contract 
+##### **Action Model 3**: Agent _a_ Announces Its Intention to Sign the Contract 
 In this update, agent _a_ declares, “I want to sign the contract” (i.e. asserts a_contracta\_contracta_contract). Only its neighbors learn about this intention.
 
 **Events**: $E = \{e_{a_{sign}} , e_d\}$, where $e_{a_{sign}}$ is the event where the agent says that they know they want to sign the contract and, $e_d$ is the dummy event that cannot be distiguished by other non connected agents.
 
-**Relations:** ${e_{a_{sign}}} \sim e_d$ if and only if agent i is not connected to agent a.
+**Relations:** ${e_{a_{sign}}} \sim e_d$ if and only if agent i is not connected to agent a, and *i* is part of the set of agents and i != a.
 
 **Precondition**
 $pre({e_{a_{sign}}}​)=contract$, (know the contract exists before announcing that its knows it wants to sign.)
 
-**Action Model 3*4: Agent _b_ Announces Its Intention to Sign the Contract 
+##### **Action Model 4: Agent _b_ Announces Its Intention to Sign the Contract 
 In this update, agent _b_ declares, “I want to sign the contract” (i.e. asserts a_contracta\_contracta_contract). Only its neighbors learn about this intention.
 
 **Events**: $E = \{e_{b_{sign}} , e_d\}$, where $e_{a_{sign}}$ is the event where the agent says that they know they want to sign the contract and, $e_d$ is the dummy event that cannot be distiguished by other non connected agents.
 
-**Relations:** ${e_{b_{sign}}} \sim e_d$ if and only if agent i is not connected to agent b.
+**Relations:** ${e_{b_{sign}}} \sim_{i} e_d$ if and only if agent i is not connected to agent b , and *i* is part of the set of agents and i != b.
 
 **Precondition**
 $pre({e_{a_{sign}}}​)=contract$, (know the contract exists before announcing that its knows it wants to sign.)
 
 
-# Simulation
+##### **Action Model 5: Agent gives all of its knowledge to its connections 
+In this update, agent _b_ declares, “I want to sign the contract” (i.e. asserts a_contracta\_contracta_contract). Only its neighbors learn about this intention.
 
+**Events**: $E = \{e , e_d\}$, where e is the event in which the agent comunicates $\phi$ ,its knowledge and $e_d$ is the dummy event that cannot be distiguished by other non connected agents.
+
+**Relations:** $e \sim_{i} e_d$ if and only if agent i is not connected to the agent executing the event, and *i* is part of the set of agents and i != a.
+
+**Precondition**
+$pre(e)=pre(e_{d}​)=ϕ$, This means that the broadcast action can only be applied in worlds where φ is true.

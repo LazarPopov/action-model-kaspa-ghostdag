@@ -190,6 +190,9 @@ The visualization helps to illustrate how the information propagated through the
 
 
 LINK to CODE https://github.com/LazarPopov/action-model-kaspa-ghostdag
+
+
+
 Below are some example figures (replace the image URLs with your own assets if needed):
 
 ![image](https://github.com/user-attachments/assets/9b1cc46a-450c-4237-8702-6130fa17766a)

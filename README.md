@@ -188,6 +188,8 @@ Nodes: Represent the eight fixed possible worlds, each labeled with the truth va
 Edges (Arrows): For each agent, colored arrows (using a unique color per agent) are drawn between every pair of worlds that the agent still considers possible. Since the epistemic relation for an agent is complete over its set of possible worlds, every pair of nodes in that subset is connected.
 The visualization helps to illustrate how the information propagated through the network restricts the agents’ epistemic states. Initially, the Kripke model shows all eight worlds with each agent’s accessibility relation covering all nodes. After successive broadcasts, the number of accessible worlds for each agent reduces. Ultimately, the model converges when every agent considers only the correct world (i.e. the world where all propositions are true).
 
+
+LINK to CODE https://github.com/LazarPopov/action-model-kaspa-ghostdag
 Below are some example figures (replace the image URLs with your own assets if needed):
 
 ![image](https://github.com/user-attachments/assets/9b1cc46a-450c-4237-8702-6130fa17766a)
